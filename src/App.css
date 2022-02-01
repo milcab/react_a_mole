@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-color: rgb(77, 61, 77);
+}
+
+.hill {
+  display: flex;
+  flex-flow: row wrap;
+}

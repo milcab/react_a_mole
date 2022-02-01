@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import MoleContainer from './MoleContainer'
+import MoleContainer from './moleContainer'
+import './App.css';
 
 function App() {
   let [score, setScore] = useState(0)
@@ -16,7 +17,7 @@ function App() {
     }
 
     return (
-      <div>
+      <div className='hill'>
         {hills}
       </div>
     )

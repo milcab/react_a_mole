@@ -1,22 +1,19 @@
-import { useEffect } from 'react'
-import moleImg from // Well...wherever you stored your moleImg.
+import { useEffect, useState } from 'react'
+import Mole from './mole'
+import EmptySlot from './emptySlot'
 
-    function Mole(props) {
-        useEffect(() => {
-            // Feel free to adjust this number as you see fit.
-            // It is your game to tune!
-            let randSeconds = Math.ceil(Math.random() * 5000)
-            let timer = setTimeout(() => {
-                props.setDisplayMole(false)
-            }, randSeconds)
-            return () => clearTimeout(timer)
-        })
+const MoleContainer = (props) => {
+    let [displayMole, setDisplayMole] = useState(true);
 
-        return (
-            <div>
-                <img style={{ 'width': '30vw' }}
-                    src={moleImg}
-                    onClick={props.handleClick} />
-            </div>
-        )
+    const handleClick = (e) => {
+        props.setScore(props.score + 1)
+        setDisplayMole(false)
     }
+
+    return (
+        <div className='moleContainer'>
+            {displayMole ? <Mole handleClick={handleClick} setDisplayMole={setDisplayMole} /> : <EmptySlot toggle={setDisplayMole} />}
+        </div>
+    )
+}
+export default MoleContainer
